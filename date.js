@@ -203,7 +203,6 @@ var date = (function(){
   return {
     iter: iter,
     mixin: mixin,
-    inherit: inherit,
     date: date,
     now: now
   };
