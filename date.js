@@ -1,4 +1,3 @@
-
 /**
   How to use
   
@@ -98,9 +97,6 @@ var date = (function(){
       },
       from:function(s){
         return new date().set(s);
-      },
-      clone:function(s){
-        return new date(this.t()).set(s);
       }
     }
   );
@@ -157,7 +153,7 @@ var date = (function(){
                 d[f](parseInt(v))
               }
             }else{
-              (v= parseInt(v)) && (s=='-') && (v=-v);// fixme can this be v=parseInt(s+v)
+              v= parseInt(s+v, 10);
               if(v){
                 switch(f){
                   case 'Y':
@@ -189,6 +185,9 @@ var date = (function(){
               (('' + d[s]()).replace(/^(\d)$/, '0$1'));
           }
         );
+      },
+      clone:function(s){
+        return new date(this.t()).set(s);
       },
       toString: function(){
         return this._d.toString.apply(this._d, arguments);
